@@ -1,7 +1,12 @@
+
+console.log(poll);
 $( "button" ).click(function(){
-	console.log(this.name);
-	$.ajax({url: "/voted/?option=this.name", success: function(result){
-        $("#div1").html(result);
-    }});
+	var votes = parseInt(this.value);
+	votes += 1
+	this.value = votes
+	$("#"+this.name).text(votes)
+	$.ajax({url: "/voted/?option="+this.name+"&pollid="+ poll._id + "&numvotes="+ votes, success: function(result){
+		console.log(votes);
+    }}); 
 }
 );

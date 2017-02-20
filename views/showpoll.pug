@@ -6,10 +6,14 @@ block content
     div
       for option in poll.options
           div.col-md-7
-            button.col-sm-3.add_option(type='button', name=option.option)= option.option
-            .col-sm-7= "Number of Votes: "+ option.votes
+            button.col-sm-3.add_option(type='button', name=option.option, value=option.votes)= option.option
+            p.col-sm-7 
+              | Number of Votes: 
+              span(id=option.option)= option.votes
 
 
 
 block scripts
-    script(src='/js/showpoll.js')
+  script(type='text/javascript').  
+    var poll = !{JSON.stringify(poll)};     
+  script(src='/js/showpoll.js') 

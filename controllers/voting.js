@@ -51,3 +51,25 @@ exports.getshowPoll = (req, res) => {
 	})
 
 }
+
+exports.getaddVote = (req, res) => {
+	var id = req.query.pollid
+	var option_val = req.query.option
+	var vote = req.query.numvotes
+	Voting.findById(id, function (err, poll) {
+	  if (err) return handleError(err);
+	  if (poll) {
+	  	poll.options.forEach(function(option) {
+	  		console.log(option, option.option == option_val, option);
+		  	if (option.option == option_val)
+		  	{
+		  		option.votes = vote;
+		  	}
+		  });
+	  	  poll.save(function (err, updatedTank) {
+		    if (err) return handleError(err);
+		    res.end("works");
+		  });
+	  }
+});
+}
