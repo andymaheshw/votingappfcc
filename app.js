@@ -137,6 +137,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
 
 app.get('/makepoll', passportConfig.isAuthenticated, votingController.getmakePoll);
 app.post('/makepoll', passportConfig.isAuthenticated, votingController.postmakePoll);
+app.get('/poll/:id', passportConfig.isAuthenticated, votingController.getshowPoll);
+
 /**
  * API examples routes.
  */

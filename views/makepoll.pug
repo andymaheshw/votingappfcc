@@ -9,11 +9,18 @@ block content
       label.col-sm-3.control-label(for='title') Title
       .col-sm-7
         input.form-control(name='title', id='title', placeholder='title')
-    .form-group
-      label.col-sm-3.control-label(for='title') Option 1
+    #options
+      .form-group#Option1
+        label.col-sm-3.control-label(for='title') Option 1
+        .col-sm-7
+          input.form-control(name='Option_1', id='Option_1', placeholder='Option 1')
+      .form-group#Option2
+        label.col-sm-3.control-label(for='title') Option 2
+        .col-sm-7
+          input.form-control(name='Option_2', id='Option_2', placeholder='Option 2')
+    .form-group#button
       .col-sm-7
-        input.form-control(name='Option_1', id='Option_1', placeholder='Option 1')
-      button.col-sm-3.add_option(type='button')
+        button.col-sm-3.add_option(type='button')
     .form-group
       .col-sm-offset-3.col-sm-7
         button.col-sm-3.btn.btn-primary(type='submit')

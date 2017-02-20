@@ -6,9 +6,13 @@ block content
   hr
   .row
     .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
+      h2 Surveys
+      ul
+        for vote in voting
+          li
+              a(href="/poll/"+vote.id)= vote.title
+        else
+          li sorry, no surveys
         a.btn.btn-default(href='#', role='button') View details »
     .col-sm-6
       h2 Heading

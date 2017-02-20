@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .page-header
+      h3 Poll #{poll.title}
+    div
+      for option in poll.options
+          div.col-md-7
+            button.col-sm-3.add_option(type='button', name=option.option)= option.option
+            .col-sm-7= "Number of Votes: "+ option.votes
+
+
+
+block scripts
+    script(src='/js/showpoll.js')

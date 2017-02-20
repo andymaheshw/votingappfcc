@@ -8,15 +8,15 @@
 
 exports.index = (req, res) => {
   Voting.find({}, function(err, voting) {
-  	 var votingMap = {};
-
+  	 var votingMap = [];
 
   	voting.forEach(function(voting) {
-      votingMap[voting._id] = voting.title;
+      votingMap.push({"title": voting.title, "id": voting._id});
     });
-    console.log(votingMap)
+    console.log("votingMap", votingMap)
   res.render('home', {
-    title: 'Home'
+    title: 'Home', 
+    voting: votingMap
   });
 });
 };
